@@ -310,6 +310,9 @@ Strip these wherever they appear. Each one breaks a guardrail (§0.2), is deferr
 - Session or test IDs and version strings ("SYS_ID", "Engine v2.4", "SPEC V1.4.2", "Harness: V2-SPEC-COMPLIANT").
 - Emoji or brand marks for companies (🍎). Monograms only.
 - Showing the author's college on experience cards.
+- "Log out of all devices" in Settings.
+- Required markers on the composer's role title and outcome; only company and level are required (API §13).
+- "Most questions" sort on hubs and "Most questions / experiences" on companies. Hubs sort A–Z / Most learned, companies A–Z only.
 
 **Copy to correct** (use the doc copy, not the design's)
 - Onboarding chip "Engineer" → "Working professional"; leaderboard helper → "Shown on the leaderboard — never your email"; CTA → "Continue".
@@ -351,12 +354,14 @@ No `Backend_Schema.md` changes: every field the designs legitimately show alread
 
 Also changed: [UI_Generation_Prompts.md](UI_Generation_Prompts.md) (the gallery is at `/dev/gallery`, dark only), [Dev_to_Prod_Strategy.md](Dev_to_Prod_Strategy.md) §1.7 layer 4 (the build flag strips `/dev/gallery`) and [UI_UX_Brief.md](UI_UX_Brief.md) §10.3 row 2.
 
-### 7.3 Open decisions
+### 7.3 Resolved decisions
 
-| # | Question | Where |
-|---|---|---|
-| 1 | **"Log out of all devices"** is in the Settings design and in UI_Generation_Prompts (`onLogoutAll`), but not in the PRD, App_Flow or the API. It would need `POST /api/auth/logout-all` reusing the existing "revoke all of that user's refresh tokens" path. Build it, or drop it from Settings? | API §1, PRD ACC |
-| 2 | **Unverified-email pre-flight check**: the brief §3.3 lists it, App_Flow §3.1 says "signed in", and API `/me` says `emailVerified` is always `true`. The check looks dead; remove it from the brief? | Brief §3.3, App_Flow §3.1 |
-| 3 | **Home checklist**: PRD HOME-1 mentions "verify email", App_Flow §7 doesn't. Which list ships? | PRD HOME-1, App_Flow §7 |
-| 4 | **Community composer required fields**: the design marks role title and outcome as required; the API requires only company and level. Keep them optional (current contract)? | API §13 |
-| 5 | **Hub and company sort options**: the designs add "Most questions" (hubs) and "Most questions / experiences" (companies); App_Flow specifies A–Z (and Most learned on hubs). Client-side sorting needs no API change. Add them to App_Flow, or drop them? | App_Flow §10.1, §12 |
+Each was settled in favour of the binding docs, adding no scope.
+
+| # | Question | Decision | Docs changed |
+|---|---|---|---|
+| 1 | **"Log out of all devices"** was in the Settings design and UI_Generation_Prompts (`onLogoutAll`), but not in the PRD, App_Flow or the API | **Dropped.** It's on the strip list (§6). Adding it later would need a PRD requirement and `POST /api/auth/logout-all` reusing the "revoke all of that user's refresh tokens" path | UI_Generation_Prompts (Settings row and `onLogoutAll` removed) |
+| 2 | **Unverified-email pre-flight check** in brief §3.3 | **Removed.** Only providers that assert a verified email can sign in (PRD §6.5, API `/me` `emailVerified` always `true`), so "Signed in" covers it. Pre-flight checks are signed in, width ≥ 768 px, online and editor loaded (App_Flow §3.1) | UI_UX_Brief §3.3 |
+| 3 | **Home checklist**: PRD HOME-1 said "verify email", which contradicts the PRD's own "no separate email-verification step" | **App_Flow §7 ships**: Solve your first problem · Take a quiz · Take the free mock test, from `GET /api/me/stats`. It already matches UI_Generation_Prompts and the Implementation_Plan acceptance test | PRD HOME-1 |
+| 4 | **Composer required fields**: the design marks role title and outcome as required | **Optional**, as in the current contract: experiences require only `companySlug` and `level` | None (strip list, §6) |
+| 5 | **Extra sort options** on hubs and companies | **Dropped.** Hubs sort A–Z / Most learned, companies A–Z (App_Flow §10, §12) | None (strip list, §6) |

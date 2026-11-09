@@ -1,0 +1,10 @@
+# Local development (profile `dev`). Non-secret defaults for a local MySQL 8.4;
+# every value can still be overridden from the environment.
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/semicolan_mvp?createDatabaseIfNotExist=true&connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true&useAffectedRows=true}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:root}
+  flyway:
+    # db/seed-dev holds development fixtures and is enabled only for dev and test.
+    locations: classpath:db/migration,classpath:db/seed-dev

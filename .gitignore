@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build output
+target/
+dist/
+dist-ssr/
+*.local
+
+# Environment and secrets (keep the template)
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Test reports
+e2e/playwright-report/
+e2e/test-results/
+coverage/
+
+# IDE and OS files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+!.vscode/extensions.json
+.classpath
+.project
+.settings/
+.factorypath
+.DS_Store
+Thumbs.db
+*.swp
+*.sw?
+
+# Maven wrapper downloads
+.mvn/wrapper/maven-wrapper.jar

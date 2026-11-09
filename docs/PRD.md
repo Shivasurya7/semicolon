@@ -170,7 +170,7 @@ All items below ship at launch. Anything not listed is out of scope.
 | LB-1 | One global leaderboard ranked by difficulty-weighted points (same weights as MT-3), with **This week** (default) and **All-time** views |
 | LB-2 | Always shows the viewer's own rank and neighbors, even outside the top N |
 | LB-3 | Verified users only; shows display name |
-| HOME-1 | **Home dashboard** for signed-in users: greeting, a three-step getting-started checklist (verify email, first Accepted submission, first mock test), "Continue where you left off", topic tiles with progress, an activity heatmap with current and longest streak, and cards for the mock tests, the viewer's weekly rank, and Premium (Free users only). Built only from data the platform already records |
+| HOME-1 | **Home dashboard** for signed-in users: greeting, a three-step getting-started checklist (first Accepted submission, first completed quiz, first mock test), "Continue where you left off", topic tiles with progress, an activity heatmap with current and longest streak, and cards for the mock tests, the viewer's weekly rank, and Premium (Free users only). Built only from data the platform already records |
 | PRF-1 | **Profile page**: identity card, solved count by difficulty (solved / published), the activity heatmap with streaks, recent submissions, and a link to account settings and billing. Private to the user in MVP (no public profile URLs) |
 
 ### 7.6 Monetization

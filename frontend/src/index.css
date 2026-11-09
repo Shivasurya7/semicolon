@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark theme only in the MVP (UI_UX_Brief §1). */
+  color-scheme: dark;
+}
