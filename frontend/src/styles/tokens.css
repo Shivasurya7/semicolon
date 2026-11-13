@@ -1,0 +1,66 @@
+/* Dark theme tokens (UI_UX_Brief §1.1). Colors are RGB channels so Tailwind can apply alpha: rgb(var(--x) / a). */
+:root {
+  color-scheme: dark;
+
+  --color-bg-base: 28 28 28;
+  --color-bg-section: 30 30 30;
+  --color-bg-card: 33 33 33;
+  --color-bg-input: 35 35 35;
+  --color-bg-inset: 36 35 36;
+  --color-bg-row: 38 38 38;
+  --color-bg-surface: 40 39 40;
+  --color-bg-raised: 46 46 46;
+  --color-bg-chip: 59 58 58;
+
+  --color-border-subtle: 40 40 40;
+  --color-border: 46 46 46;
+  --color-border-row: 58 58 58;
+  --color-border-strong: 117 119 127;
+  --color-border-hover: 85 82 125;
+
+  --color-text-strong: 250 250 249;
+  --color-text-primary: 236 235 234;
+  --color-text-prose: 218 217 218;
+  --color-text-secondary: 195 196 200;
+  --color-text-muted: 151 155 165;
+  --color-text-on-accent: 255 255 255;
+  --color-text-on-highlight: 28 28 28;
+
+  --color-accent-emphasis: 88 31 166;
+  --color-accent-emphasis-hover: 115 43 223;
+  --color-accent: 174 128 236;
+  --color-accent-icon: 145 86 231;
+  --color-accent-subtle: 43 28 62;
+  --color-premium-surface: 34 31 39;
+  --color-premium-border: 99 62 154;
+  --color-step-badge: 148 120 215;
+  --color-step-badge-text: 28 28 28;
+  --color-highlight: 245 192 42;
+
+  --color-success: 92 197 96;
+  --color-error: 244 105 92;
+  --color-warning: 235 168 77;
+  --color-info: 101 152 212;
+
+  --color-syn-default: 212 212 212;
+  --color-syn-comment: 119 162 96;
+  --color-syn-keyword: 97 155 212;
+  --color-syn-control: 197 134 192;
+  --color-syn-string: 206 145 120;
+  --color-syn-number: 181 206 168;
+  --color-syn-type: 78 201 176;
+  --color-syn-function: 220 220 170;
+  --color-syn-line-number: 142 142 142;
+
+  --color-scrim: rgb(53 53 53 / 0.6);
+  --plan-featured: linear-gradient(180deg, #27222d 0%, #230841 100%);
+  --step-card: linear-gradient(180deg, rgb(var(--color-bg-card)) 0%, rgb(var(--color-premium-surface)) 100%);
+
+  /* Landing backdrop (UI_UX_Brief §8.3): white grid at 3%, accent-emphasis glow at 20%. */
+  --backdrop-grid-line: rgb(255 255 255 / 0.03);
+  --backdrop-glow: rgb(var(--color-accent-emphasis) / 0.2);
+  --overlay-dark: rgb(0 0 0 / 0.08);
+
+  --shadow-popover: 0 8px 24px rgb(0 0 0 / 0.45);
+  --shadow-dialog: 0 24px 64px rgb(0 0 0 / 0.6);
+}

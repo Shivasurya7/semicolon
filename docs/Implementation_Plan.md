@@ -101,7 +101,7 @@ These have external lead times and must not wait for the code phases, even thoug
 | Mock tests | `MOCK_CLOSER_INTERVAL` (15 s), `MOCK_CLOSE_SETTLE` (10 s) | 4.3 |
 | Payments (all modes) | `SEMICOLAN_PAYMENTS_PROVIDER` (`mock` \| `razorpay` \| `stripe`), `MOCK_PAYMENT_WEBHOOK_SECRET` (dev only), `RECONCILE_INTERVAL`, `RECONCILE_AFTER`, `CHECKOUT_REUSE_WINDOW` (15 min), `REMINDER_DAYS` (7,1) | 8.1 |
 | Payments (real providers) | `RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET`, `RAZORPAY_WEBHOOK_SECRET`; optional `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET` | 10.3 |
-| Frontend (build time) | `VITE_API_BASE_URL`, `VITE_ENABLE_DEV_TOOLS` (`true` only for local and preview builds; tree-shakes `/dev/*` routes otherwise) | 1.2 |
+| Frontend (build time) | `VITE_API_BASE_URL`, `VITE_ENABLE_DEV_TOOLS` (`true` only for local and preview builds; tree-shakes `/dev/*` routes otherwise), `VITE_WARMUP_PROBLEM_SLUG` (the landing page's "Try a problem now" target, App_Flow §1), `VITE_SUPPORT_EMAIL` (footer and FAQ contact) | 1.2 |
 
 Secrets come only from the environment or secret store, one set per environment; non-secret defaults live in `application-*.yml`; the app fails at startup when a required key is missing — and when `SEMICOLAN_AUTH_MODE` or `SEMICOLAN_PAYMENTS_PROVIDER` is `mock` under the `staging` or `prod` profile (TRD §2).
 

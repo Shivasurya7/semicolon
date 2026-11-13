@@ -1,8 +1,73 @@
+@import './styles/tokens.css';
+@import './styles/fonts.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  /* Dark theme only in the MVP (UI_UX_Brief §1). */
-  color-scheme: dark;
+@layer base {
+  html {
+    @apply bg-base font-sans text-primary antialiased;
+    scroll-behavior: smooth;
+    /* Keeps anchor targets clear of the 64 px sticky marketing nav (WCAG 2.4.11). */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply min-h-screen bg-base;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--color-accent));
+    outline-offset: 2px;
+  }
+
+  code,
+  kbd,
+  pre,
+  samp {
+    font-variant-ligatures: none;
+  }
+}
+
+@layer components {
+  .bg-grid-fade {
+    background-image:
+      linear-gradient(to right, var(--backdrop-grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--backdrop-grid-line) 1px, transparent 1px);
+    background-size: 32px 32px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 35%, black 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 60% 55% at 50% 35%, black 40%, transparent 100%);
+  }
+
+  .bg-accent-glow {
+    background: radial-gradient(circle closest-side, var(--backdrop-glow), transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 120ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+    scroll-behavior: auto !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-skeleton,
+  .animate-spin {
+    animation: none !important;
+  }
+  [class*='animate-'][class*='-in'] {
+    animation-name: fade-in !important;
+  }
+}
+
+@media (prefers-contrast: more), (forced-colors: active) {
+  .marketing-backdrop {
+    display: none;
+  }
 }
